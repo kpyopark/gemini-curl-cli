@@ -42,8 +42,9 @@ INPUT_TEXT="${@:1}"
 # 2. 액세스 토큰을 얻습니다
 ACCESS_TOKEN=$(get_access_token)
 
-# 3. 프로젝트 ID와 리전을 설정합니다
-source ./.env
+SCRIPT_DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
+# .env 파일을 스크립트 디렉토리 기준으로 읽습니다
+source "${SCRIPT_DIR}/.env"
 MODEL_ID="gemini-1.5-flash-001"
 
 # 4. API 엔드포인트 URL을 구성합니다
